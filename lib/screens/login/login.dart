@@ -5,96 +5,99 @@ import 'package:movie_app/screens/home/homeScreen.dart';
 import 'package:movie_app/theme/appTheme.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
   static String routeName = "/loginPage";
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.backgroundColor,
-      body: SingleChildScrollView(
-        reverse: true,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Spacer(
-                  flex: 2,
-                ),
-                Text(
-                  "Log in",
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.person),
-                    label: Text("username"),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Spacer(
+              flex: 1,
+            ),
+            Text(
+              "Log in",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            Spacer(
+              flex: 1,
+            ),
+            Form(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Email",
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    label: Text("password"),
+                  SizedBox(
+                    height: 10,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            foregroundColor: AppTheme.whiteColor,
-                            textStyle: TextStyle(fontSize: 20),
-                            backgroundColor: AppTheme.redLightColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10))),
-                        onPressed: () {
-                          Navigator.pushNamed(context, HomeScreen.routeName);
-                        },
-                        child: Text("Login"),
-                      ),
+                  buildCustomTextForm(
+                    hintTxt: "enter your email",
+                    icon: Icons.person,
+                    color: AppTheme.whiteColor,
+                    controller: emailController,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Password",
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  buildCustomTextForm(
+                    hintTxt: "enter your password",
+                    icon: Icons.lock,
+                    color: AppTheme.whiteColor,
+                    controller: passwordController,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        minimumSize: Size(double.infinity, 60),
+                        backgroundColor: AppTheme.redLightColor,
+                        foregroundColor: AppTheme.whiteColor),
+                    onPressed: () {},
+                    child: Text(
+                      "Login",
+                      style: TextStyle(fontSize: 20),
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Expanded(
-                  child: Row(
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Row(
                     children: [
                       Expanded(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.black,
-                              textStyle: TextStyle(fontSize: 20),
                               backgroundColor: AppTheme.whiteColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10))),
+                              foregroundColor: AppTheme.backgroundColor),
                           onPressed: () {},
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Image.asset(
                                 "assets/images/google.png",
-                                height: 25,
-                              ),
-                              SizedBox(
-                                width: 5,
+                                width: 25,
                               ),
                               Text(
-                                "Google",
-                                style: Theme.of(context).textTheme.bodyMedium,
+                                "Google  ",
+                                style: TextStyle(fontSize: 20),
                               ),
                             ],
                           ),
@@ -106,25 +109,19 @@ class LoginPage extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.black,
-                              textStyle: TextStyle(fontSize: 20),
                               backgroundColor: AppTheme.whiteColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10))),
+                              foregroundColor: AppTheme.backgroundColor),
                           onPressed: () {},
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Image.asset(
                                 "assets/images/facebook.png",
-                                height: 25,
-                              ),
-                              SizedBox(
-                                width: 5,
+                                width: 25,
                               ),
                               Text(
                                 "Facebook",
-                                style: Theme.of(context).textTheme.bodyMedium,
+                                style: TextStyle(fontSize: 20),
                               ),
                             ],
                           ),
@@ -132,34 +129,52 @@ class LoginPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
-                Center(
-                  child: Row(
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "don't have any account?",
-                        style: TextStyle(color: Colors.white),
+                        "don't have an account?",
+                        style: TextStyle(color: AppTheme.whiteColor),
                       ),
                       SizedBox(
-                        width: 10,
+                        width: 20,
                       ),
                       TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "create an account",
-                            style: TextStyle(color: Colors.white),
-                          ))
+                        onPressed: () {},
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(color: AppTheme.redLightColor),
+                        ),
+                      ),
+                      Spacer(),
                     ],
                   ),
-                ),
-                Spacer(
-                  flex: 2,
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
+            Spacer(
+              flex: 2,
+            ),
+          ],
         ),
       ),
+    );
+  }
+
+  TextFormField buildCustomTextForm(
+      {required String hintTxt,
+      IconData? icon,
+      required Color color,
+      required TextEditingController controller}) {
+    return TextFormField(
+      controller: controller,
+      decoration: InputDecoration(
+          prefixIcon: Icon(icon),
+          hintText: hintTxt,
+          hintStyle: TextStyle(color: color)),
     );
   }
 }

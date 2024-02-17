@@ -10,20 +10,7 @@ import 'package:movie_app/screens/splahScreen.dart';
 import 'package:movie_app/theme/appTheme.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  //Unhandled Exception: PlatformException(null-error, Host platform returned null) firebase (Solved).
-  Platform.isAndroid
-      ? await Firebase.initializeApp(
-          options: const FirebaseOptions(
-              apiKey: "AIzaSyDHlblYLhp2PpBSaPAHa_-bL8nV2-4wwds",
-              appId: "1:150040494990:android:d5a13af225673cc2b81adf",
-              messagingSenderId: '150040494990',
-              projectId: "movie-app-977df"),
-        )
-      : await Firebase.initializeApp();
-  await FirebaseFirestore.instance.disableNetwork();
-  FirebaseFirestore.instance.settings =
-      const Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -35,8 +22,8 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightMode,
       initialRoute: SplachScreen.routeName,
       routes: {
-        IntroScreen.routeName: (_) => const IntroScreen(),
-        SplachScreen.routeName: (_) => const SplachScreen(),
+        IntroScreen.routeName: (_) => IntroScreen(),
+        SplachScreen.routeName: (_) => SplachScreen(),
         LoginPage.routeName: (_) => LoginPage(),
         HomeScreen.routeName: (_) => const HomeScreen(),
       },
