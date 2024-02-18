@@ -42,8 +42,10 @@ dependencies:
   firebase_storage: ^11.6.5
   firebase_messaging: ^14.7.15
   google_sign_in: ^6.2.1
-
+  carousel_slider: ^4.2.1
+  http: ^1.2.1
   flutter_facebook_auth: '^3.5.0'
+  
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +73,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/images/movies/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

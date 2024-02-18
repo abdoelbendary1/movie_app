@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightMode,
-      initialRoute: SplachScreen.routeName,
+      initialRoute: HomeScreen.routeName,
       routes: {
         IntroScreen.routeName: (_) => IntroScreen(),
         SplachScreen.routeName: (_) => SplachScreen(),
