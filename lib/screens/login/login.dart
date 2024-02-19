@@ -2,7 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/screens/home/homeScreen.dart';
+import 'package:movie_app/screens/home/homeScreen/homeScreen.dart';
 import 'package:movie_app/screens/login/signUp.dart';
 import 'package:movie_app/screens/login/user_auth/firebase_auth_service.dart';
 import 'package:movie_app/theme/appTheme.dart';

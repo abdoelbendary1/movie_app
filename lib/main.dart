@@ -3,7 +3,10 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/screens/home/homeScreen.dart';
+import 'package:movie_app/screens/Movie/movieCategory.dart';
+import 'package:movie_app/screens/Movie/movieDetails.dart';
+import 'package:movie_app/screens/home/homeScreen/homeScreen.dart';
+import 'package:movie_app/screens/home/mainScreen.dart';
 import 'package:movie_app/screens/intro.dart';
 import 'package:movie_app/screens/login/login.dart';
 import 'package:movie_app/screens/login/signUp.dart';
@@ -35,13 +38,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightMode,
-      initialRoute: HomeScreen.routeName,
+      initialRoute: MainScreen.routeName,
       routes: {
         IntroScreen.routeName: (_) => IntroScreen(),
+        MainScreen.routeName: (_) => MainScreen(),
         SplachScreen.routeName: (_) => SplachScreen(),
         LoginPage.routeName: (_) => LoginPage(),
         HomeScreen.routeName: (_) => HomeScreen(),
         SignUpPage.routeName: (_) => SignUpPage(),
+        MovieDetailsScreen.routeName: (_) => MovieDetailsScreen(),
+        MovieSearchScreen.routeName: (_) => MovieSearchScreen(),
       },
     );
   }

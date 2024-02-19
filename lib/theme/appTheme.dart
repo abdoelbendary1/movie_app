@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static const Color backgroundColor = Color(0xff000000);
-  static const Color whiteColor = Color(0xffffffff);
+  static const Color bottomAppBarColor = Color(0xff2B2B28);
+  static const Color yellowColor = Color(0xffE3B04B);
+  static const Color primaryColor = Color(0xffF73859);
+
+  static const Color whiteColor = Color(0xffEDEDED);
   static const Color redLightColor = Color(0xffFF2626);
   static const Color redDarkColor = Color(0xffBD1616);
   static const Color blackDarkColor = Color(0xff3D3B40);
   static ThemeData lightMode = ThemeData(
+      primaryColor: bottomAppBarColor,
       appBarTheme: const AppBarTheme(
         actionsIconTheme: IconThemeData(color: whiteColor),
         color: redLightColor,
@@ -31,6 +36,19 @@ class AppTheme {
           fontSize: 10,
           color: whiteColor,
         ),
+      ),
+      bottomAppBarTheme: BottomAppBarTheme(
+        color: bottomAppBarColor,
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedIconTheme: const IconThemeData(size: 30),
+        unselectedIconTheme: const IconThemeData(size: 20),
+        selectedItemColor: yellowColor,
+        unselectedItemColor: whiteColor,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        backgroundColor: bottomAppBarColor,
+        elevation: 0,
       ),
       iconTheme: IconThemeData(color: whiteColor),
       inputDecorationTheme: const InputDecorationTheme(
